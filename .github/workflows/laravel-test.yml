@@ -11,7 +11,7 @@ jobs:
 
     services:
       mysql:
-        image: mysql:latest
+        image: mysql:mysql-server:8.0
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: 1
           MYSQL_DATABASE: dbname
@@ -20,10 +20,16 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
       redis:
-        image: redis:latest
+        image: redis:alpine
         ports:
           - 6379/tcp
         options: --health-cmd="redis-cli ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+      meilisearch:
+        image: getmeili/meilisearch:latest
+        ports:
+          - 7700/tcp
+        options: --health-cmd="wget --no-verbose --spider http://localhost:7700/health" --health-interval=10s --health-timeout=5s --health-retries=3
 
     strategy:
       fail-fast: true
