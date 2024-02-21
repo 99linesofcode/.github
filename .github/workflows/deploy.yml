@@ -12,16 +12,50 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      DOCKER_BUILDKIT: 1
+      KAMAL_REGISTRY_PASSWORD: ${{ secrets.KAMAL_REGISTRY_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2 # docs: https://github.com/shivammathur/setup-php
+        with:
+          php-version: 8.2
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, gd, redis-phpredis/phpredis@5.3.7, igbinary, msgpack, lzf, zstd, lz4, memcached, gmp, :php-psr
+          ini-values: error_reporting=E_ALL
+          tools: composer:v2
+          coverage: none
+        env:
+          REDIS_CONFIGURE_OPTS: --enable-redis --enable-redis-igbinary --enable-redis-msgpack --enable-redis-lzf --with-liblzf --enable-redis-zstd --with-libzstd --enable-redis-lz4 --with-liblz4
+          REDIS_LIBS: liblz4-dev, liblzf-dev, libzstd-dev
+
+      - run: composer install --prefer-stable --prefer-dist --no-interaction --no-progress --optimize-autoloader
+
+      - run: |
+          php artisan env:decrypt --key=${{ secrets.LARAVEL_DECRYPTION_KEY }}
+          php artisan config:cache
+          php artisan migrate -v
+        env:
+          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+          REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
+
+      - run: vendor/bin/phpunit --coverage-text --display-deprecation
+        env:
+          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+          REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
+
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.3.0
           bundle-cache: true
+
       - run: gem install kamal
+
       - uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
       - uses: docker/setup-buildx-action@v3
-      - run: kamal lock release && kamal redeploy
+
+      - run: kamal lock release -c "deploy.yml" && kamal redeploy -c "deploy.yml"
