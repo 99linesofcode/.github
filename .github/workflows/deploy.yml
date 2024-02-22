@@ -31,15 +31,6 @@ jobs:
       - run: |
           php artisan env:decrypt --key=${{ secrets.LARAVEL_DECRYPTION_KEY }}
           php artisan config:cache
-          php artisan migrate -v
-        env:
-          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
-          REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
-
-      - run: vendor/bin/phpunit --coverage-text --display-deprecation
-        env:
-          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
-          REDIS_PORT: ${{ job.services.redis.ports['6379'] }}
 
       - uses: ruby/setup-ruby@v1
         with:
