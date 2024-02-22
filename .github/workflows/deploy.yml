@@ -30,7 +30,7 @@ jobs:
           REDIS_CONFIGURE_OPTS: --enable-redis --enable-redis-igbinary --enable-redis-msgpack --enable-redis-lzf --with-liblzf --enable-redis-zstd --with-libzstd --enable-redis-lz4 --with-liblz4
           REDIS_LIBS: liblz4-dev, liblzf-dev, libzstd-dev
 
-      - run: composer install --prefer-stable --prefer-dist --no-interaction --no-progress --optimize-autoloader
+      - run: composer install --no-interaction --no-progress --optimize-autoloader --classmap-authorative
 
       - run: |
           php artisan env:decrypt --key=${{ secrets.LARAVEL_DECRYPTION_KEY }}
