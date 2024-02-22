@@ -9,6 +9,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    if: ${{ github.repository != '99linesofcode/.github' }}
+
     services:
       mysql:
         image: mysql:mysql-server:8.0

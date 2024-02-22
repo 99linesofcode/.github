@@ -12,6 +12,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    if: ${{ github.repository != '99linesofcode/.github' }}
+
     env:
       DOCKER_BUILDKIT: 1
       KAMAL_REGISTRY_PASSWORD: ${{ secrets.KAMAL_REGISTRY_PASSWORD }}
