@@ -28,7 +28,7 @@ jobs:
       - run: composer install --no-interaction --no-progress --optimize-autoloader --classmap-authorative
 
       - run: |
-          php artisan env:decrypt --key=${{ secrets.LARAVEL_DECRYPTION_KEY }}
+          php artisan env:decrypt --key=${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
           php artisan config:cache
 
       - uses: ruby/setup-ruby@v1
