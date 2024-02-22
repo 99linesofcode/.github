@@ -2,6 +2,10 @@ name: test
 
 on:
   workflow_call:
+    inputs:
+      calling_repository_name:
+        required: true
+        type: string
 
 jobs:
   tests:
@@ -16,7 +20,7 @@ jobs:
         image: mysql/mysql-server:8.0
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: 1
-          MYSQL_DATABASE: dbname
+          MYSQL_DATABASE: ${{ inputs.calling_repository_name }}
         ports:
           - 3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
