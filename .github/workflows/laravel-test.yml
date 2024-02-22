@@ -33,6 +33,17 @@ jobs:
           - 7700/tcp
         options: --health-cmd="wget --no-verbose --spider http://localhost:7700/health" --health-interval=10s --health-timeout=5s --health-retries=3
 
+      soketi:
+        image: quay.io/soketi/soketi:latest-16-alpine
+        env:
+          - SOKETI_DEBUG: -1
+          - SOKETI_DEFAULT_APP_ID: app-id
+          - SOKETI_DEFAULT_APP_KEY: app-key
+          - SOKETI_DEFAULT_APP_SECRET: app-secret
+        ports:
+          - 6001/tcp
+          - 9601/tcp
+
     strategy:
       fail-fast: true
       matrix:
