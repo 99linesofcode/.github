@@ -72,7 +72,7 @@ jobs:
         with:
           timeout_minutes: 2
           max_attempts: 5
-          command: composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
+          command: composer update --${{ matrix.stability }} --no-interaction --no-progress
 
       - run: |
           php -r "copy('.env.testing', '.env');"
