@@ -21,20 +21,22 @@ jobs:
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: 1
           MYSQL_DATABASE: ${{ inputs.calling_repository_name }}
+          MYSQL_USER: default
+          MYSQL_PASSWORD: secret
         ports:
-          - 3306/tcp
+          - 3306:3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
       redis:
         image: redis:alpine
         ports:
-          - 6379/tcp
+          - 6379:6379/tcp
         options: --health-cmd="redis-cli ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
       meilisearch:
         image: getmeili/meilisearch:latest
         ports:
-          - 7700/tcp
+          - 7700:7700/tcp
         options: --health-cmd="wget --no-verbose --spider http://localhost:7700/health" --health-interval=10s --health-timeout=5s --health-retries=3
 
       soketi:
@@ -45,8 +47,8 @@ jobs:
           SOKETI_DEFAULT_APP_KEY: app-key
           SOKETI_DEFAULT_APP_SECRET: app-secret
         ports:
-          - 6001/tcp
-          - 9601/tcp
+          - 6001:6001/tcp
+          - 9601:9601/tcp
 
     strategy:
       fail-fast: true
@@ -75,7 +77,7 @@ jobs:
           command: composer update --${{ matrix.stability }} --no-interaction --no-progress
 
       - run: |
-          php -r "copy('.env.testing', '.env');"
+          php -r "copy('.env.testing.github', '.env');"
           php artisan key:generate
           php artisan config:clear
           php artisan migrate -v
