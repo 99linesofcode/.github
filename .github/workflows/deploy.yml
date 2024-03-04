@@ -24,7 +24,7 @@ jobs:
           tools: composer:v2
           coverage: none
 
-      - run: composer install --no-dev --no-interaction --no-progress --optimize-autoloader --classmap-authorative
+      - run: composer install --no-dev --no-interaction --optimize-autoloader --classmap-authorative
 
       - run: |
           php artisan env:decrypt --key=${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
@@ -32,6 +32,8 @@ jobs:
           php artisan event:cache
           php artisan route:cache
           php artisan view:cache
+          php artisan tailwindcss:download
+          php artisan tailwindcss:build --prod
 
       - uses: ruby/setup-ruby@v1
         with:
