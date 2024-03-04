@@ -21,15 +21,17 @@ jobs:
       - uses: shivammathur/setup-php@v2 # docs: https://github.com/shivammathur/setup-php
         with:
           php-version: 8.3
-          ini-values: error_reporting=E_ALL
           tools: composer:v2
           coverage: none
 
-      - run: composer install --no-interaction --no-progress --optimize-autoloader --classmap-authorative
+      - run: composer install --no-dev --no-interaction --no-progress --optimize-autoloader --classmap-authorative
 
       - run: |
           php artisan env:decrypt --key=${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
           php artisan config:cache
+          php artisan event:cache
+          php artisan route:cache
+          php artisan view:cache
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -46,6 +48,8 @@ jobs:
         env:
           DOCKER_BUILDKIT: 1
 
-      - run: kamal lock release -c "deploy.yml" && kamal redeploy -c "deploy.yml"
+      - run: |
+          kamal lock release -c "deploy.yml"
+          kamal redeploy -c "deploy.yml"
         env:
           KAMAL_REGISTRY_PASSWORD: ${{ secrets.KAMAL_REGISTRY_PASSWORD }}
