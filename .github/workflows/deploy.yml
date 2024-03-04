@@ -7,7 +7,11 @@ concurrency:
 on:
   workflow_call:
     secrets:
-      laravel_env_encryption_key:
+      CONTAINER_REGISTRY_PASSWORD:
+        required: true
+      LARAVEL_ENV_ENCRYPTION_KEY:
+        required: true
+      SSH_PRIVATE_KEY:
         required: true
 
 jobs:
@@ -28,13 +32,14 @@ jobs:
       - run: composer install --no-dev --no-interaction --optimize-autoloader --classmap-authoritative
 
       - run: |
-          php artisan env:decrypt --key "${{ secrets.laravel_env_encryption_key }}"
+          php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
           php artisan config:cache
           php artisan event:cache
           php artisan route:cache
           php artisan view:cache
           php artisan tailwindcss:download
           php artisan tailwindcss:build --prod
+          echo "KAMAL_REGISTRY_PASSWORD: ${KAMAL_REGISTRY_PASSWORD}"
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -53,6 +58,6 @@ jobs:
 
       - run: |
           kamal lock release -c "deploy.yml"
-          kamal redeploy -c "deploy.yml"
+          kamal deploy -c "deploy.yml"
         env:
           KAMAL_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
