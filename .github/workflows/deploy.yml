@@ -6,6 +6,9 @@ concurrency:
 
 on:
   workflow_call:
+    secrets:
+      laravel_env_encryption_key:
+        required: true
 
 jobs:
   deploy:
@@ -25,7 +28,7 @@ jobs:
       - run: composer install --no-dev --no-interaction --optimize-autoloader --classmap-authoritative
 
       - run: |
-          php artisan env:decrypt --key "${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}"
+          php artisan env:decrypt --key "${{ secrets.laravel_env_encryption_key }}"
           php artisan config:cache
           php artisan event:cache
           php artisan route:cache
