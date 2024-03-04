@@ -76,9 +76,9 @@ jobs:
           command: composer update --${{ matrix.stability }} --no-interaction --no-progress
 
       - run: |
-          php -r "copy('.env.testing.github', '.env');"
-          php artisan key:generate
+          echo ".env.testing" | xargs -n 1 cp .env.testing.github
           php artisan config:clear
+          php artisan key:generate --env testing
           php artisan migrate -v
 
       - run: vendor/bin/phpunit --coverage-text --display-deprecation
