@@ -77,8 +77,9 @@ jobs:
 
       - run: |
           echo ".env.testing" | xargs -n 1 cp .env.testing.github
-          php artisan config:clear
           php artisan key:generate --env testing
           php artisan migrate --env testing -v
+          php artisan tailwindcss:download
+          php artisan tailwindcss:build
 
       - run: vendor/bin/phpunit --coverage-text --display-deprecation
