@@ -22,7 +22,7 @@ jobs:
           tools: composer:v2
           coverage: none
 
-      - run: composer install --no-dev --no-interaction --optimize-autoloader --classmap-authorative
+      - run: composer install --no-dev --no-interaction --optimize-autoloader --classmap-authoritative
 
       - run: |
           php artisan env:decrypt --key "${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}"
