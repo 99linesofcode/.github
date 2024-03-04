@@ -55,4 +55,4 @@ jobs:
           kamal lock release -c "deploy.yml"
           kamal redeploy -c "deploy.yml"
         env:
-          KAMAL_REGISTRY_PASSWORD: ${{ secrets.KAMAL_REGISTRY_PASSWORD }}
+          KAMAL_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
