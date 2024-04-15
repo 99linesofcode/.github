@@ -1,0 +1,14 @@
+name: changelog
+
+on:
+  workflow_call:
+
+jobs:
+  changelog:
+
+    runs-on: ubuntu-latest
+  
+    steps:
+      - uses: TriPSs/conventional-changelog-action@v5
+        with:
+          github-token: ${{ secrets.github_token }}
