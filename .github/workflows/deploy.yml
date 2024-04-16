@@ -39,7 +39,6 @@ jobs:
           php artisan view:cache
           php artisan tailwindcss:download
           php artisan tailwindcss:build --prod
-          echo "KAMAL_REGISTRY_PASSWORD: ${KAMAL_REGISTRY_PASSWORD}"
 
       - uses: ruby/setup-ruby@v1
         with:
