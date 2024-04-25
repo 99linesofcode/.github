@@ -26,14 +26,7 @@ jobs:
           php-version: 8.3
           coverage: none
 
-      - run: |
-          php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
-          php artisan config:cache
-          php artisan event:cache
-          php artisan route:cache
-          php artisan view:cache
-          php artisan tailwindcss:download
-          php artisan tailwindcss:build --prod
+      - run: php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
 
       - uses: ruby/setup-ruby@v1
         with:
