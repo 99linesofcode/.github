@@ -44,6 +44,6 @@ jobs:
           DOCKER_BUILDKIT: 1
 
       - run: |
-          kamal lock release -c "deploy.yml"
-          kamal env push -c "deploy.yml"
-          kamal deploy -c "deploy.yml"
+          kamal lock release -c "deployment/kamal.yml"
+          kamal env push -c "deployment/kamal.yml"
+          kamal deploy -c "deployment/deploy.yml"
