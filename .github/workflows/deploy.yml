@@ -7,8 +7,6 @@ concurrency:
 on:
   workflow_call:
     secrets:
-      CONTAINER_REGISTRY_PASSWORD:
-        required: true
       LARAVEL_ENV_ENCRYPTION_KEY:
         required: true
       SSH_PRIVATE_KEY:
@@ -26,20 +24,9 @@ jobs:
       - uses: shivammathur/setup-php@v2 # docs: https://github.com/shivammathur/setup-php
         with:
           php-version: 8.3
-          tools: composer:v2
           coverage: none
 
-      - run: composer install --no-dev --no-interaction --optimize-autoloader --classmap-authoritative
-
-      - run: |
-          php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
-          php artisan config:cache
-          php artisan event:cache
-          php artisan route:cache
-          php artisan view:cache
-          php artisan tailwindcss:download
-          php artisan tailwindcss:build --prod
-          echo "KAMAL_REGISTRY_PASSWORD: ${KAMAL_REGISTRY_PASSWORD}"
+      - run: php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -57,7 +44,6 @@ jobs:
           DOCKER_BUILDKIT: 1
 
       - run: |
-          kamal lock release -c "deploy.yml"
-          kamal deploy -c "deploy.yml"
-        env:
-          KAMAL_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+          kamal lock release -c "deployment/kamal.yml"
+          kamal env push -c "deployment/kamal.yml"
+          kamal deploy -c "deployment/deploy.yml"
