@@ -2,7 +2,7 @@
 
 Thank you for considering to contribute. This document outlines some guidelines for contributing to this open source project.
 
-Please make sure to review our [Code of Conduct](CODE_OF_CONDUCT.md).
+Please make sure to review our [Code of Conduct](https://github.com/99linesofcode/.github?tab=coc-ov-file).
 
 There are several ways you can contribute to the betterment of the project:
 
@@ -43,4 +43,4 @@ The `main` branch is regularly built and tested, but it is not guaranteed to be 
 
 ## License
 
-This project is released under the [MIT License](LICENSE). By contributing to this project, you agree to license your contributions under the same license.
+This project is released under the [MIT License](https://github.com/99linesofcode/.github?tab=MIT-1-ov-file). By contributing to this project, you agree to license your contributions under the same license.
