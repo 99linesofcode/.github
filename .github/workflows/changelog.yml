@@ -16,3 +16,4 @@ jobs:
           github-token: ${{ secrets.github_token }}
           git-user-name:  "Conventional Changelog Action"
           git-user-email: "3071062+changelog@users.noreply.github.com"
+          skip-version-file: true
