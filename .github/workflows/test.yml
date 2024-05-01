@@ -74,10 +74,9 @@ jobs:
           command: composer update --${{ matrix.stability }} --no-interaction --no-progress
 
       - run: |
-          echo ".env.testing" | xargs -n 1 cp .env.testing.github
+          cp .env.testing.github .env.testing
           php artisan key:generate --env testing
           php artisan migrate --env testing -v
-          php artisan tailwindcss:download
-          php artisan tailwindcss:build
-
-      - run: vendor/bin/phpunit --coverage-text --display-deprecation
+          php artisan tailwindcss:download # each os/cpu needs a dedicated version of the bin
+          php artisan tailwindcss:build --prod
+          vendor/bin/phpunit --coverage-text --display-deprecation
