@@ -38,7 +38,7 @@ jobs:
           DOCKER_BUILDKIT: 1
 
       - run: |
-          composer install -n --prefer-dist --no-dev --no-autoloader --no-progress
+          composer install -n --prefer-dist --no-dev --no-progress --no-interaction
           php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
           gem install kamal
           kamal lock release -c "deployment/kamal.yml"
