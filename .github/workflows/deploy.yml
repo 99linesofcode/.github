@@ -43,4 +43,4 @@ jobs:
           gem install kamal
           kamal lock release -c "deployment/kamal.yml"
           kamal env push -c "deployment/kamal.yml"
-          kamal deploy -c "deployment/deploy.yml"
+          kamal deploy -c "deployment/kamal.yml"
