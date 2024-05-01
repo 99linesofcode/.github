@@ -16,8 +16,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    if: ${{ github.repository != '99linesofcode/.github' }}
-
     steps:
       - uses: actions/checkout@v4
 
