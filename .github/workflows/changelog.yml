@@ -17,3 +17,13 @@ jobs:
           git-user-name:  "Conventional Changelog Action"
           git-user-email: "3071062+changelog@users.noreply.github.com"
           skip-version-file: true
+
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: "refs/tags/${{ steps.changelog.outputs.tag }}",
+              sha: context.sha,
+            })
