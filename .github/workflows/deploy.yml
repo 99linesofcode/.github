@@ -22,9 +22,12 @@ jobs:
       - uses: shivammathur/setup-php@v2 # docs: https://github.com/shivammathur/setup-php
         with:
           php-version: 8.3
+          tools: composer:v2
           coverage: none
 
-      - run: php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
+      - run: |
+          composer install -n --prefer-dist --no-dev --no-autoloader --no-progress
+          php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
 
       - uses: ruby/setup-ruby@v1 # docs: https://github.com/ruby/setup-ruby
         with:
