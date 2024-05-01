@@ -25,16 +25,11 @@ jobs:
           tools: composer:v2
           coverage: none
 
-      - run: |
-          composer install -n --prefer-dist --no-dev --no-autoloader --no-progress
-          php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
-
       - uses: ruby/setup-ruby@v1 # docs: https://github.com/ruby/setup-ruby
         with:
           ruby-version: 3.3.0
           bundler-cache: true
 
-      - run: gem install kamal
 
       - uses: webfactory/ssh-agent@v0.9.0 # docs: https://github.com/webfactory/ssh-agent
         with:
@@ -45,6 +40,9 @@ jobs:
           DOCKER_BUILDKIT: 1
 
       - run: |
+          composer install -n --prefer-dist --no-dev --no-autoloader --no-progress
+          php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
+          gem install kamal
           kamal lock release -c "deployment/kamal.yml"
           kamal env push -c "deployment/kamal.yml"
           kamal deploy -c "deployment/deploy.yml"
