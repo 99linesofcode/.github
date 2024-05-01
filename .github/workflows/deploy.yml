@@ -16,24 +16,18 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    if: ${{ github.repository != '99linesofcode/.github' }}
-
     steps:
       - uses: actions/checkout@v4
 
       - uses: shivammathur/setup-php@v2 # docs: https://github.com/shivammathur/setup-php
         with:
           php-version: 8.3
+          tools: composer:v2
           coverage: none
-
-      - run: php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
 
       - uses: ruby/setup-ruby@v1 # docs: https://github.com/ruby/setup-ruby
         with:
-          ruby-version: 3.3.0
-          bundler-cache: true
-
-      - run: gem install kamal
+          ruby-version: head
 
       - uses: webfactory/ssh-agent@v0.9.0 # docs: https://github.com/webfactory/ssh-agent
         with:
@@ -44,6 +38,9 @@ jobs:
           DOCKER_BUILDKIT: 1
 
       - run: |
+          composer install -n --prefer-dist --no-dev --no-progress --no-interaction
+          php artisan env:decrypt --key ${{ secrets.LARAVEL_ENV_ENCRYPTION_KEY }}
+          gem install kamal
           kamal lock release -c "deployment/kamal.yml"
           kamal env push -c "deployment/kamal.yml"
-          kamal deploy -c "deployment/deploy.yml"
+          kamal deploy -c "deployment/kamal.yml"
