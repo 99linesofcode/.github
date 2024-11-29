@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: TriPSs/conventional-changelog-action@v5 # docs: https://github.com/TriPSs/conventional-changelog-action
+      - uses: TriPSs/conventional-changelog-action@v6 # docs: https://github.com/TriPSs/conventional-changelog-action
         id: changelog
         with:
           github-token: ${{ secrets.github_token }}
