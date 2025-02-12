@@ -1,10 +1,10 @@
 # Github
 
-Automation workflows for Github Actions that can be used as starter workflows or called from other repositories.
+Shared GitHub workflows and other Community Health Files that can be shared across all of my repositories.
 
 ## Contributing to .github
 
-Thank you for considering contributing to .github. Please review our [Contribution Guidelines](https://github.com/99linesofcode/.github/blob/main/.github/CONTRIBUTING.md).
+Please review our [Contribution Guidelines](https://github.com/99linesofcode/.github/blob/main/.github/CONTRIBUTING.md).
 
 ## Code of Conduct
 
@@ -16,4 +16,4 @@ Please review [our security policy](https://github.com/99linesofcode/.github?tab
 
 ## License
 
-.github is open-sourced software licensed under the [MIT license](https://github.com/99linesofcode/.github?tab=MIT-1-ov-file)
+This software is open source and licensed under the [MIT license](https://github.com/99linesofcode/.github?tab=MIT-1-ov-file)
