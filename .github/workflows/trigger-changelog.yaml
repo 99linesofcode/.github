@@ -1,5 +1,8 @@
 name: changelog
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -7,4 +10,4 @@ on:
 
 jobs:
   deploy:
-    uses: 99linesofcode/.github/.github/workflows/changelog.yml@main
+    uses: 99linesofcode/.github/.github/workflows/changelog.yaml@main
