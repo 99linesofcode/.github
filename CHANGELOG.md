@@ -1,4 +1,13 @@
-# 0.1.0 (2025-02-12)
+## [0.1.1](https://github.com/99linesofcode/.github/compare/v0.1.0...v0.1.1) (2025-02-12)
+
+
+### Bug Fixes
+
+* **deps:** bump TriPSs/conventional-changelog-action from 5 to 6 ([aacf227](https://github.com/99linesofcode/.github/commit/aacf227814eac37a2e1a54ff6fd08d695e8f97fa))
+
+
+
+# [0.1.0](https://github.com/99linesofcode/.github/compare/d834148553f77f32f9f0e8263bbe30aedc5d488c...v0.1.0) (2025-02-12)
 
 
 ### Bug Fixes
