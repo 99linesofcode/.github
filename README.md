@@ -1,8 +1,8 @@
-# Github
+# .github
 
 Shared GitHub workflows and other Community Health Files that can be shared across all of my repositories.
 
-## Contributing to .github
+## Contributing
 
 Please review our [Contribution Guidelines](https://github.com/99linesofcode/.github/blob/main/.github/CONTRIBUTING.md).
 
