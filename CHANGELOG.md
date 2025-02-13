@@ -1,4 +1,13 @@
-# 0.1.0 (2025-02-13)
+## [0.1.1](https://github.com/99linesofcode/.github/compare/v0.1.0...v0.1.1) (2025-02-13)
+
+
+### Bug Fixes
+
+* GITHUB_TOKEN needed write permission to commit and push to write protected branches ([2981eb8](https://github.com/99linesofcode/.github/commit/2981eb8ca6e23f02835cbad760248e939d90b31b))
+
+
+
+# [0.1.0](https://github.com/99linesofcode/.github/compare/d834148553f77f32f9f0e8263bbe30aedc5d488c...v0.1.0) (2025-02-13)
 
 
 ### Bug Fixes
