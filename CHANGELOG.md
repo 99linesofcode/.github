@@ -1,13 +1,4 @@
-## [0.1.1](https://github.com/99linesofcode/.github/compare/v0.1.0...v0.1.1) (2025-02-12)
-
-
-### Bug Fixes
-
-* **deps:** bump TriPSs/conventional-changelog-action from 5 to 6 ([aacf227](https://github.com/99linesofcode/.github/commit/aacf227814eac37a2e1a54ff6fd08d695e8f97fa))
-
-
-
-# [0.1.0](https://github.com/99linesofcode/.github/compare/d834148553f77f32f9f0e8263bbe30aedc5d488c...v0.1.0) (2025-02-12)
+# 0.1.0 (2025-02-13)
 
 
 ### Bug Fixes
@@ -26,6 +17,7 @@
 * **deploy:** should run on workflow call ([fcdfb3d](https://github.com/99linesofcode/.github/commit/fcdfb3d996b583e4b9c79d503e13af769d2b0ddf))
 * **deploy:** typo prevented bundler from caching installed gems ([9237184](https://github.com/99linesofcode/.github/commit/923718419fc1cec11d6f7dd752243de83f46fc45))
 * **deploy:** use correct syntax for defining env variables ([5628e02](https://github.com/99linesofcode/.github/commit/5628e02420ab4272ce04742fe392e385168f0d93))
+* **deps:** bump TriPSs/conventional-changelog-action from 5 to 6 ([eccbcea](https://github.com/99linesofcode/.github/commit/eccbcea239b2e899f3ed9f8ef6dfb3550e425c85))
 * **test:** build tailwindcss manifest file so tests run succesfully ([dfacff5](https://github.com/99linesofcode/.github/commit/dfacff56bc5741222b8964572de150564010f4ae))
 * **test:** copy .env.testing and set application encryption key ([577f716](https://github.com/99linesofcode/.github/commit/577f716ab8dc2b615388a0540df33cbb72f6d45d))
 * **test:** run migrations in testing environment ([80b341e](https://github.com/99linesofcode/.github/commit/80b341ea7ecef268fd54587afc5d357b481f3bb8))
@@ -40,10 +32,12 @@
 * callable github action for testing laravel applications with phpunit ([d834148](https://github.com/99linesofcode/.github/commit/d834148553f77f32f9f0e8263bbe30aedc5d488c))
 * **changelog:** create a lightweight tag ([f94c512](https://github.com/99linesofcode/.github/commit/f94c5129403acdadc7ac5a516634268976a5a665))
 * **changelog:** create Github release ([885da38](https://github.com/99linesofcode/.github/commit/885da382a7a47890db61e9f33bf0267268435f4d))
+* **changelog:** find GitHub usernames in release notes and link to their profile ([be9315d](https://github.com/99linesofcode/.github/commit/be9315d0ef32b3ff92e6225de862248fad7cbead))
 * **changelog:** scaffold changelog workflow ([1e715cf](https://github.com/99linesofcode/.github/commit/1e715cf83b4bfcb71e322432b3dbcd7e25ea07cc))
 * **changelog:** trigger changelog generation for this repo as well ([b125875](https://github.com/99linesofcode/.github/commit/b12587505f65d2dcf09034b3d24da72d18180eb6))
 * **deploy:** pass in decryption key from calling repository ([2bedcad](https://github.com/99linesofcode/.github/commit/2bedcadef314afec80db9ca795af10681f465b12))
 * **deploy:** pass in remaining secrets from caller repository ([b9789c3](https://github.com/99linesofcode/.github/commit/b9789c3621f857591f610920ba2ec10623616cde))
+* human readable changelogs that follow the Keep a Changelog format ([7cfc38a](https://github.com/99linesofcode/.github/commit/7cfc38a992c410eff980b6dc78ef9b29a8e33083))
 * **test:** accept caller input for database name ([6f4af0e](https://github.com/99linesofcode/.github/commit/6f4af0e93d3ba36150aea514a9dd83d314084260))
 * **test:** add missing healthcheck command for soketi service ([705cf3d](https://github.com/99linesofcode/.github/commit/705cf3d457bd6702158aea93efa0fd625f6cd2c5))
 * **test:** enable test coverage reporting ([131ae9a](https://github.com/99linesofcode/.github/commit/131ae9a9d6bd56ad56d145f1bb8a80a3f0249e3f))
