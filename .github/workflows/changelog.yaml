@@ -30,6 +30,7 @@ jobs:
         with:
           latest-version: ${{ github.event.release.tag_name }}
           release-notes: ${{ github.event.release.body }}
+          parse-github-usernames: true
 
       - name: Commit updated CHANGELOG.md
         uses: stefanzweifel/git-auto-commit-action@v5
