@@ -4,37 +4,26 @@ on:
   workflow_call:
 
 jobs:
-  update-changelog:
+  changelog:
 
     runs-on: ubuntu-latest
 
-    # Give the default GITHUB_TOKEN write permission to commit and push the updated CHANGELOG back to the repository.
-    # https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/
-    permissions:
-      contents: write
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.release.target_commitish }}
+      - uses: actions/checkout@v4
 
-      - name: Make sure CHANGELOG.md exists
-        run: |
-          if [ ! -f "CHANGELOG.md" ]; then
-            touch CHANGELOG.md
-          fi
-
-      - name: Update Changelog
-        uses: stefanzweifel/changelog-updater-action@v1
+      - uses: TriPSs/conventional-changelog-action@v6 # docs: https://github.com/TriPSs/conventional-changelog-action
+        id: changelog
         with:
-          latest-version: ${{ github.event.release.tag_name }}
-          release-notes: ${{ github.event.release.body }}
-          parse-github-usernames: true
+          github-token: ${{ secrets.github_token }}
+          git-user-name:  "Conventional Changelog Action"
+          git-user-email: "3071062+changelog@users.noreply.github.com"
+          skip-version-file: true
 
-      - name: Commit updated CHANGELOG.md
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: softprops/action-gh-release@v2 # docs: https://github.com/softprops/action-gh-release
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: ${{ github.event.release.target_commitish }}
-          commit_message: Update CHANGELOG
-          file_pattern: CHANGELOG.md
+          name: ${{ steps.changelog.outputs.tag }}
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
