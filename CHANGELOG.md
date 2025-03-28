@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/99linesofcode/.github/compare/v0.1.1...v0.1.2) (2025-03-28)
+
+
+### Bug Fixes
+
+* **deps:** bump webfactory/ssh-agent from 0.9.0 to 0.9.1 ([71042f5](https://github.com/99linesofcode/.github/commit/71042f5e4eb83a9948a5bc794f07f11303dc825c))
+
+
+
 ## [0.1.1](https://github.com/99linesofcode/.github/compare/v0.1.0...v0.1.1) (2025-02-13)
 
 
