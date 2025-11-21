@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/99linesofcode/.github/compare/v0.1.3...v0.1.4) (2025-11-21)
+
+
+### Bug Fixes
+
+* **deps:** bump actions/checkout from 5 to 6 ([125bf27](https://github.com/99linesofcode/.github/commit/125bf2727041ad1d554eb2ba5a29ada39065b109))
+
+
+
 ## [0.1.3](https://github.com/99linesofcode/.github/compare/v0.1.2...v0.1.3) (2025-08-20)
 
 
