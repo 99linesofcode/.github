@@ -1,6 +1,6 @@
 ---
 name: Concept
-about: Bedoelt voor het aandragen en inschieten van nieuwe ideeën
+about: Submit an idea, bug or feature
 title: ''
 labels: 'status: concept'
 assignees: 99linesofcode
