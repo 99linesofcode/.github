@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/99linesofcode/.github/compare/v0.2.0...v0.2.1) (2026-03-11)
+
+
+### Bug Fixes
+
+* **deps:** bump docker/setup-buildx-action from 3 to 4 ([fbbae89](https://github.com/99linesofcode/.github/commit/fbbae8932977b08e16887de7d9cb70ab5aeb2821))
+
+
+
 # [0.2.0](https://github.com/99linesofcode/.github/compare/v0.1.4...v0.2.0) (2026-01-20)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **deps:** bump webfactory/ssh-agent from 0.9.0 to 0.9.1 ([71042f5](https://github.com/99linesofcode/.github/commit/71042f5e4eb83a9948a5bc794f07f11303dc825c))
-
-
-
-## [0.1.1](https://github.com/99linesofcode/.github/compare/v0.1.0...v0.1.1) (2025-02-13)
-
-
-### Bug Fixes
-
-* GITHUB_TOKEN needed write permission to commit and push to write protected branches ([2981eb8](https://github.com/99linesofcode/.github/commit/2981eb8ca6e23f02835cbad760248e939d90b31b))
 
 
 
