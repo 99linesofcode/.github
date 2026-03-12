@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/99linesofcode/.github/compare/v0.2.1...v0.2.2) (2026-03-12)
+
+
+### Bug Fixes
+
+* **deps:** bump webfactory/ssh-agent from 0.9.1 to 0.10.0 ([bb17c3f](https://github.com/99linesofcode/.github/commit/bb17c3f6c4c41cc5d260e8c390244b4b57e2a7fe))
+
+
+
 ## [0.2.1](https://github.com/99linesofcode/.github/compare/v0.2.0...v0.2.1) (2026-03-11)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **deps:** bump actions/checkout from 4 to 5 ([68a0bc6](https://github.com/99linesofcode/.github/commit/68a0bc6ef594193bf717fe297df9a57c240016e2))
-
-
-
-## [0.1.2](https://github.com/99linesofcode/.github/compare/v0.1.1...v0.1.2) (2025-03-28)
-
-
-### Bug Fixes
-
-* **deps:** bump webfactory/ssh-agent from 0.9.0 to 0.9.1 ([71042f5](https://github.com/99linesofcode/.github/commit/71042f5e4eb83a9948a5bc794f07f11303dc825c))
 
 
 
