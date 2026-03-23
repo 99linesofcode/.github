@@ -1,3 +1,12 @@
+## [0.2.3](https://github.com/99linesofcode/.github/compare/v0.2.2...v0.2.3) (2026-03-23)
+
+
+### Bug Fixes
+
+* **deps:** bump nick-fields/retry from 3 to 4 ([cd1cc04](https://github.com/99linesofcode/.github/commit/cd1cc04405ff7bd00399467f05cf4b12bfe62309))
+
+
+
 ## [0.2.2](https://github.com/99linesofcode/.github/compare/v0.2.1...v0.2.2) (2026-03-12)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **deps:** bump actions/checkout from 5 to 6 ([125bf27](https://github.com/99linesofcode/.github/commit/125bf2727041ad1d554eb2ba5a29ada39065b109))
-
-
-
-## [0.1.3](https://github.com/99linesofcode/.github/compare/v0.1.2...v0.1.3) (2025-08-20)
-
-
-### Bug Fixes
-
-* **deps:** bump actions/checkout from 4 to 5 ([68a0bc6](https://github.com/99linesofcode/.github/commit/68a0bc6ef594193bf717fe297df9a57c240016e2))
 
 
 
