@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/99linesofcode/.github/compare/v0.3.0...v0.4.0) (2026-03-24)
+
+
+### Features
+
+* let dependabot update git submodules as well ([de839b7](https://github.com/99linesofcode/.github/commit/de839b747d824ee15011a0f4786038a6b5b7f26c))
+
+
+
 # [0.3.0](https://github.com/99linesofcode/.github/compare/v0.2.3...v0.3.0) (2026-03-24)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * **deps:** bump docker/setup-buildx-action from 3 to 4 ([fbbae89](https://github.com/99linesofcode/.github/commit/fbbae8932977b08e16887de7d9cb70ab5aeb2821))
-
-
-
-# [0.2.0](https://github.com/99linesofcode/.github/compare/v0.1.4...v0.2.0) (2026-01-20)
-
-
-### Features
-
-* issue template that can be used to broadly propose new ideas (features, bugs or otherwise) ([0e1c8a8](https://github.com/99linesofcode/.github/commit/0e1c8a8fce118606f668ffa46f63091bbe5bc965))
 
 
 
