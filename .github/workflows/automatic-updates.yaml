@@ -1,0 +1,28 @@
+name: automatic updates
+
+on:
+  workflow_call:
+
+# Give the default GITHUB_TOKEN write permission to commit and push the updated CHANGELOG back to the repository.
+# https://github.blog/changelog/2023-02-02-github-actions-updating-the-default-github_token-permissions-to-read-only/
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automatic-updates:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - uses: dependabot/fetch-metadata@v2
+        id: metadata
+
+      - name: approve and merge
+        if: |
+          steps.metadata.outputs.package-ecosystem == 'gitsubmodule' ||
+          steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
+          steps.metadata.outputs.update-type == 'version-update:semver-minor'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr review --approve "$PR_URL" && gh pr merge --auto --squash "$PR_URL"
