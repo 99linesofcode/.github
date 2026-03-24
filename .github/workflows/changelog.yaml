@@ -10,9 +10,7 @@ permissions:
 
 jobs:
   changelog:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v6
 
@@ -20,8 +18,8 @@ jobs:
         id: changelog
         with:
           github-token: ${{ secrets.github_token }}
-          git-user-name:  "Conventional Changelog Action"
-          git-user-email: "3071062+changelog@users.noreply.github.com"
+          git-user-name: Conventional Changelog Action
+          git-user-email: 3071062+changelog@users.noreply.github.com
           skip-version-file: true
 
       - uses: softprops/action-gh-release@v2 # docs: https://github.com/softprops/action-gh-release
