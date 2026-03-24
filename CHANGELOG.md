@@ -1,3 +1,13 @@
+# [0.3.0](https://github.com/99linesofcode/.github/compare/v0.2.3...v0.3.0) (2026-03-24)
+
+
+### Features
+
+* **prettier:** formatting for yaml files ([1c786cc](https://github.com/99linesofcode/.github/commit/1c786cce7f851ff28a7c33d8f21c1103168a1a34))
+* reusable workflow for automatically updating submodules and minors/patches ([3ed3792](https://github.com/99linesofcode/.github/commit/3ed3792fcd1c5a962105dca217f147ef205ace33))
+
+
+
 ## [0.2.3](https://github.com/99linesofcode/.github/compare/v0.2.2...v0.2.3) (2026-03-23)
 
 
@@ -31,15 +41,6 @@
 ### Features
 
 * issue template that can be used to broadly propose new ideas (features, bugs or otherwise) ([0e1c8a8](https://github.com/99linesofcode/.github/commit/0e1c8a8fce118606f668ffa46f63091bbe5bc965))
-
-
-
-## [0.1.4](https://github.com/99linesofcode/.github/compare/v0.1.3...v0.1.4) (2025-11-21)
-
-
-### Bug Fixes
-
-* **deps:** bump actions/checkout from 5 to 6 ([125bf27](https://github.com/99linesofcode/.github/commit/125bf2727041ad1d554eb2ba5a29ada39065b109))
 
 
 
