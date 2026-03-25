@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/99linesofcode/.github/compare/v0.4.0...v0.4.1) (2026-03-25)
+
+
+### Bug Fixes
+
+* override dependabot permissions in submodules workflow ([7314849](https://github.com/99linesofcode/.github/commit/7314849c8ded7e7ae84d335b8b3c8031826e241b))
+
+
+
 # [0.4.0](https://github.com/99linesofcode/.github/compare/v0.3.0...v0.4.0) (2026-03-24)
 
 
@@ -32,15 +41,6 @@
 ### Bug Fixes
 
 * **deps:** bump webfactory/ssh-agent from 0.9.1 to 0.10.0 ([bb17c3f](https://github.com/99linesofcode/.github/commit/bb17c3f6c4c41cc5d260e8c390244b4b57e2a7fe))
-
-
-
-## [0.2.1](https://github.com/99linesofcode/.github/compare/v0.2.0...v0.2.1) (2026-03-11)
-
-
-### Bug Fixes
-
-* **deps:** bump docker/setup-buildx-action from 3 to 4 ([fbbae89](https://github.com/99linesofcode/.github/commit/fbbae8932977b08e16887de7d9cb70ab5aeb2821))
 
 
 
