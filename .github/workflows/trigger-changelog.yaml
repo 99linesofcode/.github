@@ -1,4 +1,4 @@
-name: changelog
+name: Trigger Generate Changelog and Release
 
 on:
   push:

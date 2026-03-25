@@ -1,0 +1,27 @@
+name: Automatic submodule updates
+
+# override Dependabot[bot] read only permissions
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+  workflow_call:
+
+jobs:
+  automatic-updates:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - uses: dependabot/fetch-metadata@v2
+        id: metadata
+
+      - name: Approve, merge and delete submodule updates
+        if: steps.metadata.outputs.package-ecosystem == 'gitsubmodule'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr review --approve "$PR_URL"
+          gh pr merge --auto --squash "$PR_URL"
+          gh pr close "$PR_URL" --delete-branch
