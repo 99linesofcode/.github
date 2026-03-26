@@ -8,22 +8,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: TriPSs/conventional-changelog-action@v6 # docs: https://github.com/TriPSs/conventional-changelog-action
+
+      - name: Conventional Changelog
         id: changelog
+        uses: TriPSs/conventional-changelog-action@v6 # docs: https://github.com/TriPSs/conventional-changelog-action
         with:
           github-token: ${{ secrets.github_token }}
           git-user-name: Conventional Changelog Action
           git-user-email: 3071062+changelog@users.noreply.github.com
-          skip-version-file: true
+          skip-version-file: 'true'
 
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: softprops/action-gh-release@v2 # docs: https://github.com/softprops/action-gh-release
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v2 # docs: https://github.com/softprops/action-gh-release
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: ${{ steps.changelog.outputs.tag }}
-          tag_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          tag_name: ${{ steps.changelog.outputs.tag }}
