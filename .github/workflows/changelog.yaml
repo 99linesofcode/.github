@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-
       - uses: TriPSs/conventional-changelog-action@v6 # docs: https://github.com/TriPSs/conventional-changelog-action
         id: changelog
         with:
@@ -17,6 +16,9 @@ jobs:
           git-user-email: 3071062+changelog@users.noreply.github.com
           skip-version-file: true
 
+  release:
+    runs-on: ubuntu-latest
+    steps:
       - uses: softprops/action-gh-release@v2 # docs: https://github.com/softprops/action-gh-release
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
