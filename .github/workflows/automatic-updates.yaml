@@ -18,7 +18,7 @@ jobs:
 
       - name: Approve, merge and delete submodule updates
         if: |
-          steps.metadata.outputs.package-ecosystem == 'gitsubmodule' ||
+          steps.metadata.outputs.package-ecosystem == 'submodules' ||
           steps.metadata.outputs.update-type == 'version-update:semver-minor' ||
           steps.metadata.outputs.update-type == 'version-update:semver-patch'
         env:
