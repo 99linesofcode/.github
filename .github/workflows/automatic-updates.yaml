@@ -26,5 +26,4 @@ jobs:
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
           gh pr review --approve "$PR_URL"
-          gh pr merge --auto --squash "$PR_URL"
-          gh pr close "$PR_URL" --delete-branch
+          gh pr merge --auto --squash --delete-branch "$PR_URL"
