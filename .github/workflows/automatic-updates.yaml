@@ -2,8 +2,8 @@ name: Automatic updates
 
 # override Dependabot[bot] read only permissions
 permissions:
-  contents: write
   pull-requests: write
+  contents: write
 
 on:
   workflow_call:
@@ -11,12 +11,12 @@ on:
 jobs:
   automatic-updates:
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     steps:
       - uses: dependabot/fetch-metadata@v2
         id: metadata
 
-      - name: Approve, merge and delete submodule updates
+      - name: Approve, merge and delete branch on minor/patch/submodule updates
         if: |
           steps.metadata.outputs.package-ecosystem == 'submodules' ||
           steps.metadata.outputs.update-type == 'version-update:semver-minor' ||
