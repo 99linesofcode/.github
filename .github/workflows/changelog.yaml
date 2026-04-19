@@ -19,7 +19,7 @@ jobs:
           skip-version-file: 'true'
 
       - name: GitHub Release
-        uses: softprops/action-gh-release@v2 # docs: https://github.com/softprops/action-gh-release
+        uses: softprops/action-gh-release@v3 # docs: https://github.com/softprops/action-gh-release
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
