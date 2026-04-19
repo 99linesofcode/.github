@@ -1,3 +1,12 @@
+## [0.4.3](https://github.com/99linesofcode/.github/compare/v0.4.2...v0.4.3) (2026-04-19)
+
+
+### Bug Fixes
+
+* **deps:** bump softprops/action-gh-release from 2 to 3 ([9a8992c](https://github.com/99linesofcode/.github/commit/9a8992c9af0b6e7e44d5950f8d78f08891ce9338))
+
+
+
 ## [0.4.2](https://github.com/99linesofcode/.github/compare/v0.4.1...v0.4.2) (2026-04-09)
 
 
@@ -36,15 +45,6 @@
 
 * **prettier:** formatting for yaml files ([1c786cc](https://github.com/99linesofcode/.github/commit/1c786cce7f851ff28a7c33d8f21c1103168a1a34))
 * reusable workflow for automatically updating submodules and minors/patches ([3ed3792](https://github.com/99linesofcode/.github/commit/3ed3792fcd1c5a962105dca217f147ef205ace33))
-
-
-
-## [0.2.3](https://github.com/99linesofcode/.github/compare/v0.2.2...v0.2.3) (2026-03-23)
-
-
-### Bug Fixes
-
-* **deps:** bump nick-fields/retry from 3 to 4 ([cd1cc04](https://github.com/99linesofcode/.github/commit/cd1cc04405ff7bd00399467f05cf4b12bfe62309))
 
 
 
