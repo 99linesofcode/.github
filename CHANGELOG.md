@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/99linesofcode/.github/compare/v0.4.3...v0.5.0) (2026-06-20)
+
+
+### Features
+
+* **docker:** reusable workflow for building and publishing Docker container images ([0e51f34](https://github.com/99linesofcode/.github/commit/0e51f345cd3eae01f5c631204bebbcaace56f97c))
+
+
+
 ## [0.4.3](https://github.com/99linesofcode/.github/compare/v0.4.2...v0.4.3) (2026-04-19)
 
 
@@ -35,16 +44,6 @@
 ### Features
 
 * let dependabot update git submodules as well ([de839b7](https://github.com/99linesofcode/.github/commit/de839b747d824ee15011a0f4786038a6b5b7f26c))
-
-
-
-# [0.3.0](https://github.com/99linesofcode/.github/compare/v0.2.3...v0.3.0) (2026-03-24)
-
-
-### Features
-
-* **prettier:** formatting for yaml files ([1c786cc](https://github.com/99linesofcode/.github/commit/1c786cce7f851ff28a7c33d8f21c1103168a1a34))
-* reusable workflow for automatically updating submodules and minors/patches ([3ed3792](https://github.com/99linesofcode/.github/commit/3ed3792fcd1c5a962105dca217f147ef205ace33))
 
 
 
