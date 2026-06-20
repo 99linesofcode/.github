@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/99linesofcode/.github/compare/v0.5.0...v0.5.1) (2026-06-20)
+
+
+### Bug Fixes
+
+* **docker:** specify docker/setup-buildx-action version correctly ([f1134ac](https://github.com/99linesofcode/.github/commit/f1134ac3c90fa1bacd7b0cf63e177ac4efb8e4d9))
+
+
+
 # [0.5.0](https://github.com/99linesofcode/.github/compare/v0.4.3...v0.5.0) (2026-06-20)
 
 
@@ -35,15 +44,6 @@
 ### Bug Fixes
 
 * override dependabot permissions in submodules workflow ([7314849](https://github.com/99linesofcode/.github/commit/7314849c8ded7e7ae84d335b8b3c8031826e241b))
-
-
-
-# [0.4.0](https://github.com/99linesofcode/.github/compare/v0.3.0...v0.4.0) (2026-03-24)
-
-
-### Features
-
-* let dependabot update git submodules as well ([de839b7](https://github.com/99linesofcode/.github/commit/de839b747d824ee15011a0f4786038a6b5b7f26c))
 
 
 
