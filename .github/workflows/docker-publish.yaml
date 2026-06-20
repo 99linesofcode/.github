@@ -40,12 +40,14 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v7
         with:
-          context: .
-          file: docker/frankenphp/Dockerfile
-          target: production
-          push: true
           build-args: |
             VERSION=8.5
+          context: .
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          file: docker/frankenphp/Dockerfile
+          push: true
           tags: |
             ghcr.io/99linesofcode/${{ inputs.image_name }}:${{ github.ref_name }}
             ghcr.io/99linesofcode/${{ inputs.image_name }}:latest
+          target: production
