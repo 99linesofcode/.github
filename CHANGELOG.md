@@ -1,3 +1,12 @@
+# [0.7.0](https://github.com/99linesofcode/.github/compare/v0.6.0...v0.7.0) (2026-09-16)
+
+
+### Features
+
+* add self-update workflow to auto-merge own dependabot PRs ([2513531](https://github.com/99linesofcode/.github/commit/251353195f2af367ca63414a1b7d068d4e535e28))
+
+
+
 # [0.6.0](https://github.com/99linesofcode/.github/compare/v0.5.0...v0.6.0) (2026-06-20)
 
 
@@ -42,15 +51,6 @@
 * **github:** changelog workflow should also prepare a GitHub release ([16bcf68](https://github.com/99linesofcode/.github/commit/16bcf68adca8e2a51eb9f54bf7a625af53b1d212))
 * **github:** don't close after merge but merge --delete-branch ([f52a2b2](https://github.com/99linesofcode/.github/commit/f52a2b28a74a0ce5dbcd130c7cf28a4acc7a5294))
 * **github:** git submodules package-ecosystem is named submodules instead of gitsubmodule ([c210946](https://github.com/99linesofcode/.github/commit/c210946a942025ce480095c015a7470b74528ec5))
-
-
-
-## [0.4.1](https://github.com/99linesofcode/.github/compare/v0.4.0...v0.4.1) (2026-03-25)
-
-
-### Bug Fixes
-
-* override dependabot permissions in submodules workflow ([7314849](https://github.com/99linesofcode/.github/commit/7314849c8ded7e7ae84d335b8b3c8031826e241b))
 
 
 
