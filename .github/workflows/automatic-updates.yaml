@@ -1,10 +1,5 @@
 name: Automatic updates
 
-# override Dependabot[bot] read only permissions
-permissions:
-  pull-requests: write
-  contents: write
-
 on:
   workflow_call:
 
