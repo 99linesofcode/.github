@@ -1,3 +1,12 @@
+# [0.8.0](https://github.com/99linesofcode/.github/compare/v0.7.0...v0.8.0) (2026-09-17)
+
+
+### Features
+
+* add update-agent workflow for dependabot major bumps ([#25](https://github.com/99linesofcode/.github/issues/25)) ([3183dec](https://github.com/99linesofcode/.github/commit/3183decf536539ac5a0fd5bff27045dd7450842b))
+
+
+
 # [0.7.0](https://github.com/99linesofcode/.github/compare/v0.6.0...v0.7.0) (2026-09-16)
 
 
@@ -38,19 +47,6 @@
 ### Bug Fixes
 
 * **deps:** bump softprops/action-gh-release from 2 to 3 ([9a8992c](https://github.com/99linesofcode/.github/commit/9a8992c9af0b6e7e44d5950f8d78f08891ce9338))
-
-
-
-## [0.4.2](https://github.com/99linesofcode/.github/compare/v0.4.1...v0.4.2) (2026-04-09)
-
-
-### Bug Fixes
-
-* **deps:** bump dependabot/fetch-metadata from 2 to 3 ([2c2eeb7](https://github.com/99linesofcode/.github/commit/2c2eeb70ed9b11b872e547a47b4678f8d14f9177))
-* **github:** automatic updates should only be approved when not yet approved ([1eca6c8](https://github.com/99linesofcode/.github/commit/1eca6c85ccab674551a6f7ccfde1e7d3130426cb))
-* **github:** changelog workflow should also prepare a GitHub release ([16bcf68](https://github.com/99linesofcode/.github/commit/16bcf68adca8e2a51eb9f54bf7a625af53b1d212))
-* **github:** don't close after merge but merge --delete-branch ([f52a2b2](https://github.com/99linesofcode/.github/commit/f52a2b28a74a0ce5dbcd130c7cf28a4acc7a5294))
-* **github:** git submodules package-ecosystem is named submodules instead of gitsubmodule ([c210946](https://github.com/99linesofcode/.github/commit/c210946a942025ce480095c015a7470b74528ec5))
 
 
 
