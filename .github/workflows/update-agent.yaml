@@ -44,6 +44,12 @@ jobs:
       # pull_request_review_comment events (mention-driven), so it rejects
       # pull_request_target. Drive the headless CLI directly instead; the
       # prompt tells the agent to post the PR comment itself via gh.
+      - name: Install opencode
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          curl -fsSL https://opencode.ai/install | bash
+          echo "$HOME/.opencode/bin" >> "$GITHUB_PATH"
+
       - name: Run opencode
         if: steps.gate.outputs.run == 'true'
         env:
