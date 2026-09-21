@@ -40,16 +40,16 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      # The opencode GitHub action only runs on issue_comment /
+      # pull_request_review_comment events (mention-driven), so it rejects
+      # pull_request_target. Drive the headless CLI directly instead; the
+      # prompt tells the agent to post the PR comment itself via gh.
       - name: Run opencode
         if: steps.gate.outputs.run == 'true'
-        uses: anomalyco/opencode/github@latest
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        with:
-          model: openrouter/z-ai/glm-5.3-flash
-          use_github_token: true
-          prompt: |
+          PROMPT: |
             Dependabot opened PR #${{ github.event.pull_request.number }} bumping ${{ steps.metadata.outputs.dependency-names }} from ${{ steps.metadata.outputs.previous-version }} to ${{ steps.metadata.outputs.new-version }} (ecosystem: ${{ steps.metadata.outputs.package-ecosystem }}, major version bump).
 
             Your checkout is the PR head branch. A human reviews and merges this PR; you never merge and never approve.
@@ -66,3 +66,8 @@ jobs:
                - "✅ SAFE-TO-MERGE" — the bump is drop-in for this repo's usage. Summarize what you checked. Change nothing.
                - "✅ ADAPTED" — breaking changes affect this repo's usage. Apply the minimal adaptation, commit it to the PR head branch, and list every change with a one-line reason.
                - "⚠️ NEEDS-HUMAN: <reason>" — you could not determine safety or the required changes exceed what you can safely apply. Change nothing.
+        run: |
+          # Checkout ran with persist-credentials: false; give the agent a
+          # scoped credential helper so the ADAPTED path can push to the PR branch.
+          gh auth setup-git
+          opencode run --model openrouter/z-ai/glm-5.3-flash "$PROMPT"
