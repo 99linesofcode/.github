@@ -1,3 +1,12 @@
+## [0.8.1](https://github.com/99linesofcode/.github/compare/v0.8.0...v0.8.1) (2026-09-21)
+
+
+### Bug Fixes
+
+* **update-agent:** drive opencode run directly for pull_request_target ([96f21c0](https://github.com/99linesofcode/.github/commit/96f21c0dec0df732dfba9d60d323be9e3e4eb5a2))
+
+
+
 # [0.8.0](https://github.com/99linesofcode/.github/compare/v0.7.0...v0.8.0) (2026-09-17)
 
 
@@ -38,15 +47,6 @@
 ### Features
 
 * **docker:** reusable workflow for building and publishing Docker container images ([0e51f34](https://github.com/99linesofcode/.github/commit/0e51f345cd3eae01f5c631204bebbcaace56f97c))
-
-
-
-## [0.4.3](https://github.com/99linesofcode/.github/compare/v0.4.2...v0.4.3) (2026-04-19)
-
-
-### Bug Fixes
-
-* **deps:** bump softprops/action-gh-release from 2 to 3 ([9a8992c](https://github.com/99linesofcode/.github/commit/9a8992c9af0b6e7e44d5950f8d78f08891ce9338))
 
 
 
