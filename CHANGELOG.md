@@ -1,3 +1,12 @@
+## [0.8.2](https://github.com/99linesofcode/.github/compare/v0.8.1...v0.8.2) (2026-09-21)
+
+
+### Bug Fixes
+
+* **update-agent:** install opencode before invoking it ([65295ed](https://github.com/99linesofcode/.github/commit/65295ed23cdab8425775ac1eddab0f97e31189f1))
+
+
+
 ## [0.8.1](https://github.com/99linesofcode/.github/compare/v0.8.0...v0.8.1) (2026-09-21)
 
 
@@ -38,15 +47,6 @@
 ### Features
 
 * **docker:** speed up the build process by writing to GitHub action cache ([b3b169e](https://github.com/99linesofcode/.github/commit/b3b169e21b8fd557367653c8051405a7f814a754))
-
-
-
-# [0.5.0](https://github.com/99linesofcode/.github/compare/v0.4.3...v0.5.0) (2026-06-20)
-
-
-### Features
-
-* **docker:** reusable workflow for building and publishing Docker container images ([0e51f34](https://github.com/99linesofcode/.github/commit/0e51f345cd3eae01f5c631204bebbcaace56f97c))
 
 
 
