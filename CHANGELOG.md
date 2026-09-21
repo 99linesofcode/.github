@@ -1,3 +1,12 @@
+# [0.9.0](https://github.com/99linesofcode/.github/compare/v0.8.2...v0.9.0) (2026-09-21)
+
+
+### Features
+
+* drive the update agent through opencode mentions ([746efc4](https://github.com/99linesofcode/.github/commit/746efc452f25b8bbb443c5b44f361ce45be6f679))
+
+
+
 ## [0.8.2](https://github.com/99linesofcode/.github/compare/v0.8.1...v0.8.2) (2026-09-21)
 
 
@@ -31,22 +40,6 @@
 ### Features
 
 * add self-update workflow to auto-merge own dependabot PRs ([2513531](https://github.com/99linesofcode/.github/commit/251353195f2af367ca63414a1b7d068d4e535e28))
-
-
-
-# [0.6.0](https://github.com/99linesofcode/.github/compare/v0.5.0...v0.6.0) (2026-06-20)
-
-
-### Bug Fixes
-
-* **docker:** allow passing in PAT so organizational images can be created ([476b323](https://github.com/99linesofcode/.github/commit/476b3233525aad3ce595dce401688cca4f1f769a))
-* **docker:** checkout the caller repository and docker/ submodule ([e4d8397](https://github.com/99linesofcode/.github/commit/e4d8397701f55e2d2d9cd71d678e6f6bacf0e6e4))
-* **docker:** specify docker/setup-buildx-action version correctly ([f1134ac](https://github.com/99linesofcode/.github/commit/f1134ac3c90fa1bacd7b0cf63e177ac4efb8e4d9))
-
-
-### Features
-
-* **docker:** speed up the build process by writing to GitHub action cache ([b3b169e](https://github.com/99linesofcode/.github/commit/b3b169e21b8fd557367653c8051405a7f814a754))
 
 
 
