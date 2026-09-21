@@ -1,0 +1,40 @@
+name: opencode agent
+
+on:
+  workflow_call:
+
+concurrency:
+  group: opencode-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  opencode:
+    runs-on: ubuntu-latest
+    if: contains(github.event.comment.body, '/opencode')
+    steps:
+      # The opencode action skips its own permission check when
+      # use_github_token is true, so gate the commenter here: only accounts
+      # with write access may summon the agent with the workflow's token.
+      - name: Check commenter write access
+        id: perm
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ACTOR: ${{ github.event.comment.user.login }}
+        run: |
+          perm=$(gh api "repos/${{ github.repository }}/collaborators/${ACTOR}/permission" --jq '.permission')
+          if [ "$perm" = "admin" ] || [ "$perm" = "write" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "Commenter ${ACTOR} has '${perm}' access; ignoring mention."
+          fi
+
+      - name: Run opencode
+        if: steps.perm.outputs.ok == 'true'
+        uses: anomalyco/opencode/github@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        with:
+          model: openrouter/z-ai/glm-5.3-flash
+          use_github_token: true

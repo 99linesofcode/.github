@@ -33,29 +33,17 @@ jobs:
         if: steps.guard.outputs.run == 'true' && steps.metadata.outputs.update-type == 'version-update:semver-major'
         run: echo "run=true" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/checkout@v6
-        if: steps.gate.outputs.run == 'true'
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
-          persist-credentials: false
-
-      # The opencode GitHub action only runs on issue_comment /
-      # pull_request_review_comment events (mention-driven), so it rejects
-      # pull_request_target. Drive the headless CLI directly instead; the
-      # prompt tells the agent to post the PR comment itself via gh.
-      - name: Install opencode
-        if: steps.gate.outputs.run == 'true'
-        run: |
-          curl -fsSL https://opencode.ai/install | bash
-          echo "$HOME/.opencode/bin" >> "$GITHUB_PATH"
-
-      - name: Run opencode
+      # The briefing comment doubles as the agent trigger: it contains
+      # /opencode, and because it is posted with a PAT (not GITHUB_TOKEN) it
+      # fires the issue_comment workflow that runs the opencode action. The
+      # comment body is passed to the agent verbatim as its instruction.
+      - name: Brief the agent
         if: steps.gate.outputs.run == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          PROMPT: |
+          GH_TOKEN: ${{ secrets.OPENCODE_PAT }}
+          BRIEFING: |
+            /opencode
+
             Dependabot opened PR #${{ github.event.pull_request.number }} bumping ${{ steps.metadata.outputs.dependency-names }} from ${{ steps.metadata.outputs.previous-version }} to ${{ steps.metadata.outputs.new-version }} (ecosystem: ${{ steps.metadata.outputs.package-ecosystem }}, major version bump).
 
             Your checkout is the PR head branch. A human reviews and merges this PR; you never merge and never approve.
@@ -65,15 +53,17 @@ jobs:
             - Change only what the breaking changes require. No drive-by refactors, no extra dependency changes, no formatting churn.
             - If you cannot determine safety from the available information, that is NEEDS-HUMAN, not a guess.
 
+            Comment format:
+            - Line 1 is the verdict: "✅ SAFE-TO-MERGE", "✅ ADAPTED", or "⚠️ NEEDS-HUMAN: <reason>".
+            - Directly below, explain in plain language a non-developer can follow (2-4 sentences): what the bump is, why it matters for this repo, and what you checked. No jargon, no file paths, no API or package names in this part.
+            - Put every technical detail (breaking changes, APIs, types, config keys, commands, file lists) inside a collapsible section at the end: <details><summary>Technical details</summary> ... </details>.
+
             Steps:
             1. Fetch the release notes or changelog entries covering ${{ steps.metadata.outputs.previous-version }} → ${{ steps.metadata.outputs.new-version }} (gh api repos/{owner}/{repo}/releases, gh release view; fall back to changelog files in the dependency's repository). If no notes exist, say so explicitly in your verdict.
             2. Find where this repository actually uses the dependency: grep for its name, config keys, image references, imports, whatever fits the ecosystem.
-            3. Post exactly one comment on PR #${{ github.event.pull_request.number }}. First line is the verdict:
+            3. Post exactly one comment with your verdict on PR #${{ github.event.pull_request.number }}:
                - "✅ SAFE-TO-MERGE" — the bump is drop-in for this repo's usage. Summarize what you checked. Change nothing.
-               - "✅ ADAPTED" — breaking changes affect this repo's usage. Apply the minimal adaptation, commit it to the PR head branch, and list every change with a one-line reason.
+               - "✅ ADAPTED" — breaking changes affect this repo's usage. Apply the minimal adaptation, commit it to the PR head branch, and list every change with a one-line reason (inside the technical details section).
                - "⚠️ NEEDS-HUMAN: <reason>" — you could not determine safety or the required changes exceed what you can safely apply. Change nothing.
         run: |
-          # Checkout ran with persist-credentials: false; give the agent a
-          # scoped credential helper so the ADAPTED path can push to the PR branch.
-          gh auth setup-git
-          opencode run --model openrouter/z-ai/glm-5.3-flash "$PROMPT"
+          gh pr comment "${{ github.event.pull_request.number }}" --body "$BRIEFING"
