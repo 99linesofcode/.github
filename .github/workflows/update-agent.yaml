@@ -70,7 +70,8 @@ jobs:
                - "✅ ADAPTED" — breaking changes affect this repo's usage. Apply the minimal adaptation, commit it to the PR head branch, and list every change with a one-line reason (inside the technical details section).
                - "⚠️ NEEDS-HUMAN: <reason>" — you could not determine safety or the required changes exceed what you can safely apply. Change nothing.
         run: |
-          gh pr comment "${{ github.event.pull_request.number }}" --body "$BRIEFING"
+          # No checkout in this job; gh cannot infer the repo from a remote.
+          gh pr comment "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --body "$BRIEFING"
 
       - name: Notice when the PAT is missing
         if: steps.gate.outputs.run == 'true' && env.OPENCODE_PAT == ''
