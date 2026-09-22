@@ -44,5 +44,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         with:
-          model: openrouter/z-ai/glm-5.3-flash
+          model: openrouter/deepseek/deepseek-v4-flash-0731
           use_github_token: true
