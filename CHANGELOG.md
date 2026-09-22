@@ -1,3 +1,12 @@
+## [0.9.5](https://github.com/99linesofcode/.github/compare/v0.9.4...v0.9.5) (2026-09-22)
+
+
+### Bug Fixes
+
+* persist checkout credentials for the opencode push ([c04d75b](https://github.com/99linesofcode/.github/commit/c04d75b31e77e8beb2facfe4c1b1069fbbc7dc41))
+
+
+
 ## [0.9.4](https://github.com/99linesofcode/.github/compare/v0.9.3...v0.9.4) (2026-09-22)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * skip the agent briefing when OPENCODE_PAT is absent ([3b65135](https://github.com/99linesofcode/.github/commit/3b65135f1bd964efbf5e713857ff9dc8326a7ba0))
-
-
-
-# [0.9.0](https://github.com/99linesofcode/.github/compare/v0.8.2...v0.9.0) (2026-09-21)
-
-
-### Features
-
-* drive the update agent through opencode mentions ([746efc4](https://github.com/99linesofcode/.github/commit/746efc452f25b8bbb443c5b44f361ce45be6f679))
 
 
 
