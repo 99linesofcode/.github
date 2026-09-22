@@ -1,3 +1,12 @@
+# [0.10.0](https://github.com/99linesofcode/.github/compare/v0.9.5...v0.10.0) (2026-09-22)
+
+
+### Features
+
+* switch the opencode agent to deepseek v4 flash 0731 ([5ca581d](https://github.com/99linesofcode/.github/commit/5ca581d3799416b70b0c79cab83cefae436a17ff))
+
+
+
 ## [0.9.5](https://github.com/99linesofcode/.github/compare/v0.9.4...v0.9.5) (2026-09-22)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * test the PAT through env, not secrets, in if conditionals ([a16550e](https://github.com/99linesofcode/.github/commit/a16550eddb7c2a8663b13d6870b837973bf783e0))
-
-
-
-## [0.9.1](https://github.com/99linesofcode/.github/compare/v0.9.0...v0.9.1) (2026-09-22)
-
-
-### Bug Fixes
-
-* skip the agent briefing when OPENCODE_PAT is absent ([3b65135](https://github.com/99linesofcode/.github/commit/3b65135f1bd964efbf5e713857ff9dc8326a7ba0))
 
 
 
