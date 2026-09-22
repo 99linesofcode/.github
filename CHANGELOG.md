@@ -1,3 +1,12 @@
+## [0.10.2](https://github.com/99linesofcode/.github/compare/v0.10.1...v0.10.2) (2026-09-22)
+
+
+### Bug Fixes
+
+* restore the shared automatic-updates reusable workflow ([8b74d96](https://github.com/99linesofcode/.github/commit/8b74d96d4524ab366ac0d66192d273a8d6d6f3a5))
+
+
+
 ## [0.10.1](https://github.com/99linesofcode/.github/compare/v0.10.0...v0.10.1) (2026-09-22)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * check out the repository before running the opencode action ([d7b9566](https://github.com/99linesofcode/.github/commit/d7b9566750a699084cb4a5b178a8b35294b30ff3))
-
-
-
-## [0.9.3](https://github.com/99linesofcode/.github/compare/v0.9.2...v0.9.3) (2026-09-22)
-
-
-### Bug Fixes
-
-* pin the repo for the briefing comment ([7e5ddaa](https://github.com/99linesofcode/.github/commit/7e5ddaa21648b864a31ba32ae0f3068970cf06b4))
 
 
 
