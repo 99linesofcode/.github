@@ -31,10 +31,11 @@ jobs:
 
       # The opencode action fetches and checks out the PR branch itself,
       # but it needs an existing repository with an origin remote to do so.
+      # persist-credentials must stay true: the handler skips its own git
+      # auth setup when use_github_token is true and relies on the
+      # checkout-stored token for its final push. The token is job-scoped.
       - uses: actions/checkout@v6
         if: steps.perm.outputs.ok == 'true'
-        with:
-          persist-credentials: false
 
       - name: Run opencode
         if: steps.perm.outputs.ok == 'true'
