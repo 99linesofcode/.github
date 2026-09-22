@@ -1,3 +1,12 @@
+## [0.10.1](https://github.com/99linesofcode/.github/compare/v0.10.0...v0.10.1) (2026-09-22)
+
+
+### Bug Fixes
+
+* rename OPENCODE_PAT to GH_PAT per the secret naming convention ([40e433d](https://github.com/99linesofcode/.github/commit/40e433d408ca91ec50a575ef82573f6a7da87a48))
+
+
+
 # [0.10.0](https://github.com/99linesofcode/.github/compare/v0.9.5...v0.10.0) (2026-09-22)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * pin the repo for the briefing comment ([7e5ddaa](https://github.com/99linesofcode/.github/commit/7e5ddaa21648b864a31ba32ae0f3068970cf06b4))
-
-
-
-## [0.9.2](https://github.com/99linesofcode/.github/compare/v0.9.1...v0.9.2) (2026-09-22)
-
-
-### Bug Fixes
-
-* test the PAT through env, not secrets, in if conditionals ([a16550e](https://github.com/99linesofcode/.github/commit/a16550eddb7c2a8663b13d6870b837973bf783e0))
 
 
 
