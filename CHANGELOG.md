@@ -1,3 +1,12 @@
+## [0.9.2](https://github.com/99linesofcode/.github/compare/v0.9.1...v0.9.2) (2026-09-22)
+
+
+### Bug Fixes
+
+* test the PAT through env, not secrets, in if conditionals ([a16550e](https://github.com/99linesofcode/.github/commit/a16550eddb7c2a8663b13d6870b837973bf783e0))
+
+
+
 ## [0.9.1](https://github.com/99linesofcode/.github/compare/v0.9.0...v0.9.1) (2026-09-22)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **update-agent:** drive opencode run directly for pull_request_target ([96f21c0](https://github.com/99linesofcode/.github/commit/96f21c0dec0df732dfba9d60d323be9e3e4eb5a2))
-
-
-
-# [0.8.0](https://github.com/99linesofcode/.github/compare/v0.7.0...v0.8.0) (2026-09-17)
-
-
-### Features
-
-* add update-agent workflow for dependabot major bumps ([#25](https://github.com/99linesofcode/.github/issues/25)) ([3183dec](https://github.com/99linesofcode/.github/commit/3183decf536539ac5a0fd5bff27045dd7450842b))
 
 
 
