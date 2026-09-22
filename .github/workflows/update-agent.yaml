@@ -14,7 +14,7 @@ jobs:
     env:
       # The secrets context is not available in if conditionals, so the
       # briefing steps test this env copy instead.
-      OPENCODE_PAT: ${{ secrets.OPENCODE_PAT }}
+      GH_PAT: ${{ secrets.GH_PAT }}
     steps:
       - name: Skip when the head commit is not Dependabot's
         id: guard
@@ -42,9 +42,9 @@ jobs:
       # fires the issue_comment workflow that runs the opencode action. The
       # comment body is passed to the agent verbatim as its instruction.
       - name: Brief the agent
-        if: steps.gate.outputs.run == 'true' && env.OPENCODE_PAT != ''
+        if: steps.gate.outputs.run == 'true' && env.GH_PAT != ''
         env:
-          GH_TOKEN: ${{ secrets.OPENCODE_PAT }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
           BRIEFING: |
             /opencode
 
@@ -74,5 +74,5 @@ jobs:
           gh pr comment "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --body "$BRIEFING"
 
       - name: Notice when the PAT is missing
-        if: steps.gate.outputs.run == 'true' && env.OPENCODE_PAT == ''
-        run: echo "::notice::OPENCODE_PAT is not set on this repository; the agent briefing was skipped."
+        if: steps.gate.outputs.run == 'true' && env.GH_PAT == ''
+        run: echo "::notice::GH_PAT is not set on this repository; the agent briefing was skipped."
