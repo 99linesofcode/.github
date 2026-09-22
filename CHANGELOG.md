@@ -1,3 +1,12 @@
+## [0.9.1](https://github.com/99linesofcode/.github/compare/v0.9.0...v0.9.1) (2026-09-22)
+
+
+### Bug Fixes
+
+* skip the agent briefing when OPENCODE_PAT is absent ([3b65135](https://github.com/99linesofcode/.github/commit/3b65135f1bd964efbf5e713857ff9dc8326a7ba0))
+
+
+
 # [0.9.0](https://github.com/99linesofcode/.github/compare/v0.8.2...v0.9.0) (2026-09-21)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * add update-agent workflow for dependabot major bumps ([#25](https://github.com/99linesofcode/.github/issues/25)) ([3183dec](https://github.com/99linesofcode/.github/commit/3183decf536539ac5a0fd5bff27045dd7450842b))
-
-
-
-# [0.7.0](https://github.com/99linesofcode/.github/compare/v0.6.0...v0.7.0) (2026-09-16)
-
-
-### Features
-
-* add self-update workflow to auto-merge own dependabot PRs ([2513531](https://github.com/99linesofcode/.github/commit/251353195f2af367ca63414a1b7d068d4e535e28))
 
 
 
