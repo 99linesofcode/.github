@@ -38,7 +38,7 @@ jobs:
       # fires the issue_comment workflow that runs the opencode action. The
       # comment body is passed to the agent verbatim as its instruction.
       - name: Brief the agent
-        if: steps.gate.outputs.run == 'true'
+        if: steps.gate.outputs.run == 'true' && secrets.OPENCODE_PAT != ''
         env:
           GH_TOKEN: ${{ secrets.OPENCODE_PAT }}
           BRIEFING: |
@@ -67,3 +67,7 @@ jobs:
                - "⚠️ NEEDS-HUMAN: <reason>" — you could not determine safety or the required changes exceed what you can safely apply. Change nothing.
         run: |
           gh pr comment "${{ github.event.pull_request.number }}" --body "$BRIEFING"
+
+      - name: Notice when the PAT is missing
+        if: steps.gate.outputs.run == 'true' && secrets.OPENCODE_PAT == ''
+        run: echo "::notice::OPENCODE_PAT is not set on this repository; the agent briefing was skipped."
