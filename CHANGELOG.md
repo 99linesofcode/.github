@@ -1,3 +1,12 @@
+## [0.9.3](https://github.com/99linesofcode/.github/compare/v0.9.2...v0.9.3) (2026-09-22)
+
+
+### Bug Fixes
+
+* pin the repo for the briefing comment ([7e5ddaa](https://github.com/99linesofcode/.github/commit/7e5ddaa21648b864a31ba32ae0f3068970cf06b4))
+
+
+
 ## [0.9.2](https://github.com/99linesofcode/.github/compare/v0.9.1...v0.9.2) (2026-09-22)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **update-agent:** install opencode before invoking it ([65295ed](https://github.com/99linesofcode/.github/commit/65295ed23cdab8425775ac1eddab0f97e31189f1))
-
-
-
-## [0.8.1](https://github.com/99linesofcode/.github/compare/v0.8.0...v0.8.1) (2026-09-21)
-
-
-### Bug Fixes
-
-* **update-agent:** drive opencode run directly for pull_request_target ([96f21c0](https://github.com/99linesofcode/.github/commit/96f21c0dec0df732dfba9d60d323be9e3e4eb5a2))
 
 
 
