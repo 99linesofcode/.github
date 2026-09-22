@@ -29,6 +29,13 @@ jobs:
             echo "Commenter ${ACTOR} has '${perm}' access; ignoring mention."
           fi
 
+      # The opencode action fetches and checks out the PR branch itself,
+      # but it needs an existing repository with an origin remote to do so.
+      - uses: actions/checkout@v6
+        if: steps.perm.outputs.ok == 'true'
+        with:
+          persist-credentials: false
+
       - name: Run opencode
         if: steps.perm.outputs.ok == 'true'
         uses: anomalyco/opencode/github@latest
