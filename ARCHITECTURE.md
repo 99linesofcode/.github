@@ -2,10 +2,9 @@
 
 The architecture document for this repository, following the
 [architecture.md](https://architecture.md) schema — built so an agent (or a
-new colleague) can comprehend the codebase from this file alone, and so the
-architectural principles in the `software-architecture` and
-`software-development` skills are visible in how this repo actually works.
-Fill every section; delete nothing. Update it in the same change that
+new colleague) can comprehend the codebase from this file alone, and so this
+repository's own architectural principles are visible in how it actually
+works. Fill every section; delete nothing. Update it in the same change that
 alters the architecture it describes.
 
 ## 1. Project Structure
@@ -92,9 +91,8 @@ Project-specific terms and acronyms, defined.
 
 ## 12. Conventions & Boundaries
 
-The house standards this repository adheres to — the full contract lives in
-the `software-architecture` skill; this section records what is enforced
-HERE, and by which gate.
+The house standards this repository adheres to — stated here in full; this
+section records what is enforced HERE, and by which gate.
 
 - **Folder structure**: module-first, following the language's dominant
   convention (PSR-4 in PHP; lowercase module folders in TypeScript). The
@@ -115,5 +113,4 @@ HERE, and by which gate.
   a provider's structure is a provider shape, whatever its file name.
 - **Documentation surfaces**: WHY comments at the change site; the
   developer manual (`docs/developer-manual.md`) updated when a flow
-  changes; the behavioral contract (`scenarios.md`) amended only by the
-  owner.
+  changes; the behavioral contract amended only by the owner.
