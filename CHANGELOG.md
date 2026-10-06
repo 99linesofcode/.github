@@ -1,3 +1,12 @@
+# [0.12.0](https://github.com/99linesofcode/.github/compare/v0.11.0...v0.12.0) (2026-10-06)
+
+
+### Features
+
+* **ci:** add the deptrac architecture workflow ([7a8c56b](https://github.com/99linesofcode/.github/commit/7a8c56bec07fa3b5c3c446d30e93c102500e140b))
+
+
+
 # [0.11.0](https://github.com/99linesofcode/.github/compare/v0.10.2...v0.11.0) (2026-10-06)
 
 
@@ -31,15 +40,6 @@
 ### Features
 
 * switch the opencode agent to deepseek v4 flash 0731 ([5ca581d](https://github.com/99linesofcode/.github/commit/5ca581d3799416b70b0c79cab83cefae436a17ff))
-
-
-
-## [0.9.5](https://github.com/99linesofcode/.github/compare/v0.9.4...v0.9.5) (2026-09-22)
-
-
-### Bug Fixes
-
-* persist checkout credentials for the opencode push ([c04d75b](https://github.com/99linesofcode/.github/commit/c04d75b31e77e8beb2facfe4c1b1069fbbc7dc41))
 
 
 
