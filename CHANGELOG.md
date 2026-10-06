@@ -1,3 +1,12 @@
+# [0.11.0](https://github.com/99linesofcode/.github/compare/v0.10.2...v0.11.0) (2026-10-06)
+
+
+### Features
+
+* **ci:** add the deptrac architecture workflow ([#26](https://github.com/99linesofcode/.github/issues/26)) ([5e180f0](https://github.com/99linesofcode/.github/commit/5e180f0cbfae50d4e5193686c4ad1bfe4bf05992))
+
+
+
 ## [0.10.2](https://github.com/99linesofcode/.github/compare/v0.10.1...v0.10.2) (2026-09-22)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * persist checkout credentials for the opencode push ([c04d75b](https://github.com/99linesofcode/.github/commit/c04d75b31e77e8beb2facfe4c1b1069fbbc7dc41))
-
-
-
-## [0.9.4](https://github.com/99linesofcode/.github/compare/v0.9.3...v0.9.4) (2026-09-22)
-
-
-### Bug Fixes
-
-* check out the repository before running the opencode action ([d7b9566](https://github.com/99linesofcode/.github/commit/d7b9566750a699084cb4a5b178a8b35294b30ff3))
 
 
 
