@@ -1,3 +1,12 @@
+## [0.12.1](https://github.com/99linesofcode/.github/compare/v0.12.0...v0.12.1) (2026-10-09)
+
+
+### Bug Fixes
+
+* **ci:** brief the update agent once per PR and post a single comment ([#28](https://github.com/99linesofcode/.github/issues/28)) ([a71f3ea](https://github.com/99linesofcode/.github/commit/a71f3ea3f36d9cfb1b04799a65f0440369514f9f)), closes [#39](https://github.com/99linesofcode/.github/issues/39) [#39](https://github.com/99linesofcode/.github/issues/39)
+
+
+
 # [0.12.0](https://github.com/99linesofcode/.github/compare/v0.11.0...v0.12.0) (2026-10-06)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * rename OPENCODE_PAT to GH_PAT per the secret naming convention ([40e433d](https://github.com/99linesofcode/.github/commit/40e433d408ca91ec50a575ef82573f6a7da87a48))
-
-
-
-# [0.10.0](https://github.com/99linesofcode/.github/compare/v0.9.5...v0.10.0) (2026-09-22)
-
-
-### Features
-
-* switch the opencode agent to deepseek v4 flash 0731 ([5ca581d](https://github.com/99linesofcode/.github/commit/5ca581d3799416b70b0c79cab83cefae436a17ff))
 
 
 
