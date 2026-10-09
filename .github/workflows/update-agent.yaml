@@ -37,16 +37,37 @@ jobs:
         if: steps.guard.outputs.run == 'true' && steps.metadata.outputs.update-type == 'version-update:semver-major'
         run: echo "run=true" >> "$GITHUB_OUTPUT"
 
+      # Dependabot rebases its branch every time the base branch moves, which
+      # re-fires this workflow with a new head commit but the same bump. The
+      # agent's verdict cannot change until a human acts, so briefing it again
+      # only burns tokens. Brief once per pull request: a prior briefing —
+      # either the marker or the pre-marker briefing text — means skip. A human
+      # can still summon a fresh review by commenting /opencode themselves.
+      - name: Skip when already briefed
+        id: briefed
+        if: steps.gate.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bodies=$(gh api "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments" --paginate --jq '.[].body')
+          if printf '%s' "$bodies" | grep -qE '<!-- update-agent-briefed -->|Dependabot opened PR #'; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "PR #${{ github.event.pull_request.number }} was already briefed; skipping."
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
       # The briefing comment doubles as the agent trigger: it contains
       # /opencode, and because it is posted with a PAT (not GITHUB_TOKEN) it
       # fires the issue_comment workflow that runs the opencode action. The
       # comment body is passed to the agent verbatim as its instruction.
       - name: Brief the agent
-        if: steps.gate.outputs.run == 'true' && env.GH_PAT != ''
+        if: steps.gate.outputs.run == 'true' && steps.briefed.outputs.run == 'true' && env.GH_PAT != ''
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
           BRIEFING: |
             /opencode
+            <!-- update-agent-briefed -->
 
             Dependabot opened PR #${{ github.event.pull_request.number }} bumping ${{ steps.metadata.outputs.dependency-names }} from ${{ steps.metadata.outputs.previous-version }} to ${{ steps.metadata.outputs.new-version }} (ecosystem: ${{ steps.metadata.outputs.package-ecosystem }}, major version bump).
 
@@ -74,5 +95,5 @@ jobs:
           gh pr comment "${{ github.event.pull_request.number }}" --repo "${{ github.repository }}" --body "$BRIEFING"
 
       - name: Notice when the PAT is missing
-        if: steps.gate.outputs.run == 'true' && env.GH_PAT == ''
+        if: steps.gate.outputs.run == 'true' && steps.briefed.outputs.run == 'true' && env.GH_PAT == ''
         run: echo "::notice::GH_PAT is not set on this repository; the agent briefing was skipped."
