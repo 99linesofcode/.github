@@ -1,3 +1,12 @@
+## [0.12.2](https://github.com/99linesofcode/.github/compare/v0.12.1...v0.12.2) (2026-10-09)
+
+
+### Bug Fixes
+
+* **ci:** pass repo secrets to the update-agent job ([#30](https://github.com/99linesofcode/.github/issues/30)) ([e661867](https://github.com/99linesofcode/.github/commit/e6618677f830b12bb46286e2b751e2adc36783ff)), closes [#20](https://github.com/99linesofcode/.github/issues/20) [#23](https://github.com/99linesofcode/.github/issues/23)
+
+
+
 ## [0.12.1](https://github.com/99linesofcode/.github/compare/v0.12.0...v0.12.1) (2026-10-09)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * restore the shared automatic-updates reusable workflow ([8b74d96](https://github.com/99linesofcode/.github/commit/8b74d96d4524ab366ac0d66192d273a8d6d6f3a5))
-
-
-
-## [0.10.1](https://github.com/99linesofcode/.github/compare/v0.10.0...v0.10.1) (2026-09-22)
-
-
-### Bug Fixes
-
-* rename OPENCODE_PAT to GH_PAT per the secret naming convention ([40e433d](https://github.com/99linesofcode/.github/commit/40e433d408ca91ec50a575ef82573f6a7da87a48))
 
 
 
