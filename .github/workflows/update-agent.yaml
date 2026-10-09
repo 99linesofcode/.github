@@ -78,7 +78,8 @@ jobs:
             - Change only what the breaking changes require. No drive-by refactors, no extra dependency changes, no formatting churn.
             - If you cannot determine safety from the available information, that is NEEDS-HUMAN, not a guess.
 
-            Comment format:
+            Your reply (it becomes the single PR comment, so make it complete):
+            - Do NOT post a comment yourself — your final response is posted to the PR automatically, exactly once.
             - Line 1 is the verdict: "✅ SAFE-TO-MERGE", "✅ ADAPTED", or "⚠️ NEEDS-HUMAN: <reason>".
             - Directly below, explain in plain language a non-developer can follow (2-4 sentences): what the bump is, why it matters for this repo, and what you checked. No jargon, no file paths, no API or package names in this part.
             - Put every technical detail (breaking changes, APIs, types, config keys, commands, file lists) inside a collapsible section at the end: <details><summary>Technical details</summary> ... </details>.
@@ -86,7 +87,7 @@ jobs:
             Steps:
             1. Fetch the release notes or changelog entries covering ${{ steps.metadata.outputs.previous-version }} → ${{ steps.metadata.outputs.new-version }} (gh api repos/{owner}/{repo}/releases, gh release view; fall back to changelog files in the dependency's repository). If no notes exist, say so explicitly in your verdict.
             2. Find where this repository actually uses the dependency: grep for its name, config keys, image references, imports, whatever fits the ecosystem.
-            3. Post exactly one comment with your verdict on PR #${{ github.event.pull_request.number }}:
+            3. Finish with the verdict as your final response (it is posted to PR #${{ github.event.pull_request.number }} for you):
                - "✅ SAFE-TO-MERGE" — the bump is drop-in for this repo's usage. Summarize what you checked. Change nothing.
                - "✅ ADAPTED" — breaking changes affect this repo's usage. Apply the minimal adaptation, commit it to the PR head branch, and list every change with a one-line reason (inside the technical details section).
                - "⚠️ NEEDS-HUMAN: <reason>" — you could not determine safety or the required changes exceed what you can safely apply. Change nothing.
